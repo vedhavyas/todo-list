@@ -3,8 +3,9 @@ package main
 import (
 	"context"
 	"errors"
-
 	"log"
+
+	"github.com/micro/go-micro/server"
 
 	"github.com/vedhavyas/todo-list/auth/proto"
 )
@@ -37,4 +38,21 @@ func getUsernameFromToken(token string) (string, error) {
 	}
 
 	return DummyUsername, nil
+}
+
+func main() {
+	// init the server
+	server.Init(
+		server.Name("Auth"),
+		server.Version("1.0"),
+	)
+
+	// register handler
+	server.Handle(server.NewHandler(&Auth{}))
+
+	// start the server
+	if err := server.Start(); err != nil {
+		log.Fatal(err)
+	}
+
 }
