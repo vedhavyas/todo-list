@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+service TodoList {
+    rpc Get (ListRequest) returns (ListResponse) {}
+}
+
+message ListRequest {
+    string name = 1;
+}
+
+message ListResponse {
+    string data = 1;
+}
