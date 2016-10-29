@@ -15,9 +15,8 @@ import (
 
 // Todo holds the details of a single todo
 type Todo struct {
-	Name     string `json:"name"`
-	Status   string `json:"status"`
-	Priority int    `json:"priority"`
+	Name   string `json:"name"`
+	Status string `json:"status"`
 }
 
 // DB implements the rpc GetTodoList
@@ -37,18 +36,18 @@ func (d *DB) GetTodoList(ctx context.Context, req *auth.AuthResponse, res *db.To
 		protoTodo := &db.TodoList{
 			TodoName: todo.Name,
 			Status:   todo.Status,
-			Priority: getPriority(todo.Priority),
 		}
 
 		res.TodoList = append(res.TodoList, protoTodo)
 	}
+	log.Println("Successfully fetched todolist...")
 
 	return nil
 }
 
 // getTodoListOfUser will return the todo-list of the given user
 func getTodoListOfUser(username string) ([]Todo, error) {
-	fileName := "todo-list.json"
+	fileName := "db/todo-list.json"
 	fh, err := os.Open(fileName)
 	if err != nil {
 		return nil, err
@@ -66,22 +65,6 @@ func getTodoListOfUser(username string) ([]Todo, error) {
 	}
 
 	return todoList, nil
-}
-
-// getPriority will return the appropriate enum for a given priority
-func getPriority(priority int) db.TodoList_Priority {
-	switch priority {
-	case 0:
-		return db.TodoList_HIGHEST
-	case 1:
-		return db.TodoList_HIGH
-	case 2:
-		return db.TodoList_MEDIUM
-	case 3:
-		return db.TodoList_LOW
-	default:
-		return db.TodoList_LOWEST
-	}
 }
 
 func main() {

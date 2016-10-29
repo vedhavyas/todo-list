@@ -11,14 +11,6 @@ service DB {
 message TodoList {
     string todo_name = 1; // Name of the todo
     string status = 2;    // Status of the todo
-    enum Priority {
-        HIGHEST = 0;
-        HIGH = 1;
-        MEDIUM = 2;
-        LOW = 3;
-        LOWEST = 4;
-    }
-    Priority priority = 3; //Priority of the todo
 }
 
 // TodoListResponse is the message type of GetTodoList response

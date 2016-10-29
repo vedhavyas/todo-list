@@ -27,6 +27,8 @@ func (a *Auth) Authenticate(ctx context.Context, req *auth.AuthRequest, res *aut
 		log.Println("Authentication failed.")
 		return err
 	}
+
+	log.Println("Authentication successful.")
 	res.Username = username
 	return nil
 }

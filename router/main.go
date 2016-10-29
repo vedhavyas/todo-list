@@ -87,6 +87,7 @@ func genericHandler(w http.ResponseWriter, r *http.Request) {
 
 // sendErrorResponse will send back the errormessage with appropriate status
 func sendErrorResponse(w http.ResponseWriter, errorMessage string, status int) {
+	log.Println("received unexpected request")
 	var response struct {
 		Error string `json:"error"`
 	}

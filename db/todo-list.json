@@ -1,31 +1,26 @@
 [
   {
     "name": "Finish Golang Test",
-    "status": "completed",
-    "priority": 0
+    "status": "completed"
   },
 
   {
     "name": "Workout for 60 minutes",
-    "status": "pending",
-    "priority": 1
+    "status": "pending"
   },
 
   {
     "name": "Attend Golang Meetup",
-    "status": "pending",
-    "priority": 2
+    "status": "pending"
   },
 
   {
     "name": "Finish chores",
-    "status": "Completed",
-    "priority": 3
+    "status": "Completed"
   },
 
   {
     "name": "Buy Groceries",
-    "status": "Completed",
-    "priority": 4
+    "status": "Completed"
   }
 ]
