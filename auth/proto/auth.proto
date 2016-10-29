@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+// Auth is the rpc Authentication service for TodoList
+service Auth {
+    rpc Authenticate (AuthRequest) returns (AuthResponse) {}
+}
+
+// AuthRequest holds the JWT token
+message AuthRequest {
+    string token = 1; // JWT token
+}
+
+// AuthResponse holds the username extracted from JWT sent through the request
+message AuthResponse {
+    string username = 1; // username extracted from JWT
+}

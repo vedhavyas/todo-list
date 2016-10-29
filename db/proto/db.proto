@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+// DB is the rpc service to fetch Todolist of a User
+service DB {
+    rps GetProfile(ProfileRequest) returns (ProfileResponse) {}
+}
+
+// ProfileRequest is the
+message ProfileRequest {
+    string username = 1;
+}
+
+message TodoList {
+    required string task = 1;
+    required string status = 2;
+    enum Priority {
+        HIGHEST = 0;
+        HIGH = 1;
+        MEDIUM = 2;
+        LOW = 3;
+        LOWEST = 4;
+    }
+    required Priority priority = 3;
+}
+
+message ProfileResponse {
+    required string username = 1;
+    repeated TodoList todoList = 2;
+}

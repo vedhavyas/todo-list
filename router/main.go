@@ -1,11 +1,14 @@
 package main
 
 import (
+	"context"
 	"log"
 
 	"github.com/micro/go-micro/client"
+
+	"encoding/json"
+
 	"github.com/vedhavyas/todo-list/app/proto"
-	"golang.org/x/net/context"
 )
 
 func main() {
@@ -22,6 +25,8 @@ func main() {
 		log.Fatal(err)
 	}
 
+	data, _ := json.Marshal(res)
+	log.Println(string(data))
 	log.Println(res.Data)
 
 }
