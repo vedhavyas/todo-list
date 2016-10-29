@@ -1,6 +1,7 @@
 #Todo List using Go-Micro
 
 This project contains 4 micro-services built using go-micro.
+
 1. Router - Router route the requests to appropriate service(App) for results.
 2. App - App authenticates the given request and respond back with todo-list of the user.
 3. Auth - Auth authenticates a given service.
@@ -20,10 +21,10 @@ This project contains 4 micro-services built using go-micro.
 2. `cd` to root of the project in each terminal
 
 ### Run the following 4 commands one in each terminal
-`go run router/main.go`
-`go run app/main.go`
-`go run auth/main.go`
-`go run db/main.go`
+1. `go run router/main.go`
+2. `go run app/main.go`
+3. `go run auth/main.go`
+4. `go run db/main.go`
 
 ## Sending the request
 1. Only one endpoint `GET /todos` is exposed for the entire service. This endpoint can be used to fetch the todos of the user.
@@ -35,4 +36,5 @@ If using a rest client like postman, send a `GET` request to `localhost:8080` wi
 
 ### Using curl
 If using curl, simply copy the curl command to fetch the results 
+
 `curl -X GET -H "X-AUTH-TOKEN: 123456789" "http://localhost:8080/todos"`
