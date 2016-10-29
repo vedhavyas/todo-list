@@ -7,8 +7,6 @@ import (
 	"github.com/micro/go-micro/client"
 
 	"encoding/json"
-
-	"github.com/vedhavyas/todo-list/app/proto"
 )
 
 func main() {

@@ -95,7 +95,7 @@ func main() {
 	server.Handle(server.NewHandler(&DB{}))
 
 	// start the server
-	if err := server.Start(); err != nil {
+	if err := server.Run(); err != nil {
 		log.Fatal(err)
 	}
 

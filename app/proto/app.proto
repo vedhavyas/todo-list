@@ -1,13 +1,9 @@
 syntax = "proto3";
 
+import "auth/proto/auth.proto";
+import "db/proto/db.proto";
+
+// App delegates the Auth and DB to get the TodoList
 service App {
-    rpc Get (ListRequest) returns (ListResponse) {}
-}
-
-message ListRequest {
-    string name = 1;
-}
-
-message ListResponse {
-    string data = 1;
+    rpc GetTodoList (AuthRequest) returns (TodoListResponse) {}
 }
