@@ -16,11 +16,11 @@
 
   {
     "name": "Finish chores",
-    "status": "Completed"
+    "status": "completed"
   },
 
   {
     "name": "Buy Groceries",
-    "status": "Completed"
+    "status": "completed"
   }
 ]
