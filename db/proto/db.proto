@@ -1,18 +1,16 @@
 syntax = "proto3";
 
-// DB is the rpc service to fetch Todolist of a User
+import "auth/proto/auth.proto";
+
+// DB is the rpc service to fetch TodoList of a User
 service DB {
-    rps GetProfile(ProfileRequest) returns (ProfileResponse) {}
+    rpc GetTodoList(AuthResponse) returns (TodoListResponse) {}
 }
 
-// ProfileRequest is the
-message ProfileRequest {
-    string username = 1;
-}
-
+// TodoList is the message type of single todo defined by the user
 message TodoList {
-    required string task = 1;
-    required string status = 2;
+    string todo_name = 1; // Name of the todo
+    string status = 2;    // Status of the todo
     enum Priority {
         HIGHEST = 0;
         HIGH = 1;
@@ -20,10 +18,11 @@ message TodoList {
         LOW = 3;
         LOWEST = 4;
     }
-    required Priority priority = 3;
+    Priority priority = 3; //Priority of the todo
 }
 
-message ProfileResponse {
-    required string username = 1;
-    repeated TodoList todoList = 2;
+// TodoListResponse is the message type of GetTodoList response
+message TodoListResponse {
+    string username = 1;            //Username of the user
+    repeated TodoList todoList = 2; //TodoList of the user
 }

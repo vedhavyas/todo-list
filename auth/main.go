@@ -21,8 +21,8 @@ type Auth struct{}
 
 // Authenticate authenticates the given JWT token
 func (a *Auth) Authenticate(ctx context.Context, req *auth.AuthRequest, res *auth.AuthResponse) error {
-	log.Println("Authntication request received...")
-	username, err := getUsernameFromToken(req.Token)
+	log.Println("Authentication request received...")
+	username, err := extractUsernameFromToken(req.Token)
 	if err != nil {
 		log.Println("Authentication failed.")
 		return err
@@ -32,7 +32,7 @@ func (a *Auth) Authenticate(ctx context.Context, req *auth.AuthRequest, res *aut
 }
 
 // getUsernameFromToken extracts the username from given JWT token
-func getUsernameFromToken(token string) (string, error) {
+func extractUsernameFromToken(token string) (string, error) {
 	if token != DummyToken {
 		return "", errors.New("Invalid JWT Token")
 	}
